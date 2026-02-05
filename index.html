@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Nacional Roller 2026 | CDMX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        :root {
+            --gold: #FFD700;
+            --gold-dim: #D4AF37;
+            --neon-yellow: #FFFF00; /* Color del Jersey */
+            --black-bg: #050505;
+            --text-white: #ffffff;
+            --whatsapp-green: #25D366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black-bg);
+            color: var(--text-white);
+            overflow-x: hidden;
+        }
+
+        /* FONDO DE ESTRELLAS */
+        .background-stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px);
+            background-size: 550px 550px, 350px 350px;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, rgba(5,5,5,1) 90%);
+            border-bottom: 1px solid #333;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif; 
+            font-size: 3.5rem;
+            color: var(--gold);
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .fecha-box {
+            border: 2px solid var(--gold);
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            background-color: rgba(0,0,0,0.6);
+            margin-bottom: 20px;
+        }
+
+        /* --- SECCIÓN NUEVA: JERSEY OFICIAL (PRODUCTO) --- */
+        .merch-section {
+            background: linear-gradient(90deg, #111 0%, #0a0a0a 100%);
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid var(--neon-yellow);
+            border-top: 2px solid var(--neon-yellow);
+            box-shadow: 0 0 30px rgba(255, 255, 0, 0.1);
+        }
+
+        .merch-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .merch-image {
+            flex: 1 1 400px;
+            min-height: 400px;
+            position: relative;
+        }
+
+        /* Aquí configuramos la imagen para que se ajuste sola */
+        .merch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Hace que la foto rellene el espacio sin deformarse */
+            display: block;
+        }
+
+        .merch-info {
+            flex: 1 1 400px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .label-new {
+            background-color: var(--neon-yellow);
+            color: #000;
+            font-weight: bold;
+            padding: 5px 15px;
+            display: inline-block;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+
+        .merch-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .merch-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--neon-yellow);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .merch-features ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .merch-features li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .merch-features li i {
+            color: var(--neon-yellow);
+            margin-right: 10px;
+        }
+
+        /* Botón de WhatsApp */
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            background-color: #1ebe57;
+        }
+
+        /* --- ITINERARIO --- */
+        .schedule-section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .grid-dias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card-dia {
+            background: rgba(20, 20, 20, 0.8);
+            border-top: 3px solid var(--gold-dim);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dia-numero { font-family: 'Cinzel'; font-size: 1.5rem; color: var(--gold); }
+        .ruta-nombre { font-weight: bold; margin: 10px 0; }
+        .ruta-desc { color: #aaa; font-size: 0.9rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .merch-container { flex-direction: column; }
+            .merch-image { min-height: 300px; }
+            .merch-info { padding: 30px 20px; text-align: center; }
+            .label-new { margin: 0 auto 15px; } /* Centrar etiqueta en móvil */
+            .merch-features ul { text-align: left; display: inline-block; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-stars"></div>
+
+    <header class="hero">
+        <h2>Ciudad de México</h2>
+        <h1>Festival Nacional<br>Roller 2026</h1>
+        <div class="fecha-box">13 - 16 DE MARZO 2026</div>
+        
+        <p style="margin-top:20px; font-size: 0.9rem; color: #aaa;">DESLIZA PARA VER LA MERCANCÍA OFICIAL</p>
+        <div style="font-size: 2rem; color: var(--gold); margin-top: 10px;">&#8595;</div>
+    </header>
+
+    <section class="merch-section" id="jersey">
+        <div class="merch-container">
+            
+            <div class="merch-image">
+                <img src="jersey.jpeg" alt="Jersey Oficial Roller CDMX 2026">
+            </div>
+
+            <div class="merch-info">
+                <span class="label-new">EDICIÓN LIMITADA</span>
+                <h2 class="merch-title">Jersey Oficial 2026</h2>
+                <div class="merch-price">$330 MXN</div>
+                
+                <div class="merch-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Dry-Fit Premium</li>
+                        <li><i class="fas fa-check"></i> Full Sublimado</li>
+                        <li><i class="fas fa-check"></i> Diseño Urbano Impactante</li>
+                        <li><i class="fas fa-check"></i> Corte Unisex</li>
+                    </ul>
+                </div>
+
+                <a href="https://wa.me/5215627538595?text=Hola,%20me%20interesa%20pedir%20el%20Jersey%20Oficial%20del%20Festival%20Roller" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> PEDIR AHORA
+                </a>
+                <p style="margin-top: 15px; font-size: 0.8rem; color: #666;">Te atenderemos directamente por WhatsApp</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule-section">
+        <h2 class="section-title">Rutas Oficiales</h2>
+        <div class="grid-dias">
+            <div class="card-dia">
+                <span class="dia-numero">DÍA 13</span>
+                <h3 class="ruta-nombre">Ruta Temática</h3>
+                <p class="ruta-desc">Dioses Griegos • Mayas</p>
+            </div>
+            <div class="card-dia">
+                <span class="dia-numero">DÍA 14</span>
+                <h3 class="ruta-nombre">Xochimilco</h3>
+                <p class="ruta-desc">Ruta Temática Amarilla</p>
+            </div>
+            <div class="card-dia">
+                <span class="dia-numero">DÍA 15</span>
+                <h3 class="ruta-nombre">Teotihuacán</h3>
+                <p class="ruta-desc">Rumbo al Sol</p>
+            </div>
+            <div class="card-dia">
+                <span class="dia-numero">DÍA 16</span>
+                <h3 class="ruta-nombre">Parres</h3>
+                <p class="ruta-desc">Ciclovía Cuernavaca</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; color: #666; font-size: 0.8rem; border-top: 1px solid #333;">
+        <p>&copy; 2026 Festival Nacional Roller CDMX</p>
+    </footer>
+
+</body>
+</html>
