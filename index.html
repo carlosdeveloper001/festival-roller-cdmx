@@ -188,7 +188,7 @@
 
         .slider {
             background: transparent;
-            height: 100px;
+            height: 160px; /* AUMENTADO para que quepa el logo gigante */
             margin: auto;
             overflow: hidden;
             position: relative;
@@ -202,7 +202,7 @@
         }
 
         .slide {
-            height: 100px;
+            height: 160px; /* AUMENTADO */
             width: 250px;
             display: flex;
             align-items: center;
@@ -210,14 +210,21 @@
             padding: 15px;
         }
 
+        /* Estilo para los logos NORMALES */
         .slide img {
             max-width: 100%;
-            max-height: 80px;
+            max-height: 75px; 
             filter: grayscale(100%); 
             opacity: 0.7;
             transition: all 0.3s;
-            /* Importante: para que la imagen dentro del link se comporte bien */
             display: block; 
+        }
+
+        /* ESTILO PARA TU LOGO GIGANTE (Featured) */
+        .slide.featured-sponsor img {
+            max-height: 150px; /* ¡AHORA ES GIGANTE! */
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
         .slide img:hover {
@@ -344,14 +351,15 @@
         <div class="slider">
             <div class="slide-track">
                 
-                <div class="slide">
+                <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
+
+                <div class="slide featured-sponsor">
                     <a href="https://www.instagram.com/dragonandroll/" target="_blank">
                         <img src="logo0.jpeg" alt="Dragon And Roll">
                     </a>
                 </div>
 
-                <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo3.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo4.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo5.jpeg" alt="Sponsor"></div>
@@ -364,14 +372,15 @@
                 <div class="slide"><img src="logo12.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo13.jpeg" alt="Sponsor"></div>
 
-                <div class="slide">
+                <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
+
+                <div class="slide featured-sponsor">
                     <a href="https://www.instagram.com/dragonandroll/" target="_blank">
                         <img src="logo0.jpeg" alt="Dragon And Roll">
                     </a>
                 </div>
 
-                <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo3.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo4.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo5.jpeg" alt="Sponsor"></div>
