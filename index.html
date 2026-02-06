@@ -159,6 +159,89 @@
         }
         .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); background-color: #1ebe57; }
 
+
+        /* --- ESTILOS DE LOS CARRUSELES HÍBRIDOS (AUTO + MANUAL) --- */
+        
+        .hybrid-scroll-container {
+            width: 100%;
+            overflow: hidden; /* Esconde scrollbars feos */
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .collaborators-bg {
+            background: linear-gradient(to bottom, #0a0a0a, #151515, #0a0a0a);
+            border-bottom: 1px solid #333;
+        }
+
+        .sponsors-bg {
+            background-color: #000;
+            border-top: 1px solid #333;
+            margin-top: auto;
+        }
+
+        .section-header-text {
+            text-align: center;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        /* El contenedor que se desplaza */
+        .scroller-track {
+            display: flex;
+            gap: 40px; /* Espacio entre logos */
+            overflow-x: auto; /* Permite scroll manual */
+            padding: 10px 20px;
+            width: 100%;
+            cursor: grab; /* Manita para agarrar */
+            
+            /* Ocultar barra de scroll pero mantener funcionalidad */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .scroller-track::-webkit-scrollbar { display: none; }
+
+        .scroller-track:active {
+            cursor: grabbing; /* Manita cerrada al agarrar */
+        }
+
+        .logo-item {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 90px; /* Altura estándar */
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+            border-radius: 8px;
+        }
+
+        /* Efecto Hover general */
+        .logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* LOGO GIGANTE (Tu patrocinador) */
+        .logo-item.giant img {
+            max-height: 150px !important; /* Altura GIGANTE */
+            filter: grayscale(0%) !important; /* Siempre a color */
+            opacity: 1 !important; /* Siempre visible */
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)) !important;
+        }
+
+
         /* --- ITINERARIO --- */
         .schedule-section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
         .section-title { text-align: center; font-family: 'Cinzel', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 40px; }
@@ -167,77 +250,6 @@
         .dia-numero { font-family: 'Cinzel'; font-size: 1.5rem; color: var(--gold); }
         .ruta-nombre { font-weight: bold; margin: 10px 0; }
         .ruta-desc { color: #aaa; font-size: 0.9rem; }
-
-        /* --- SLIDER PATROCINADORES --- */
-        .sponsors-section {
-            padding: 40px 0;
-            background: #000;
-            border-top: 1px solid #333;
-            overflow: hidden;
-            margin-top: auto;
-        }
-
-        .sponsors-title {
-            text-align: center;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .slider {
-            background: transparent;
-            height: 160px; /* AUMENTADO para que quepa el logo gigante */
-            margin: auto;
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-        }
-
-        .slide-track {
-            display: flex;
-            width: calc(250px * 28); 
-            animation: scroll 40s linear infinite;
-        }
-
-        .slide {
-            height: 160px; /* AUMENTADO */
-            width: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-        }
-
-        /* Estilo para los logos NORMALES */
-        .slide img {
-            max-width: 100%;
-            max-height: 75px; 
-            filter: grayscale(100%); 
-            opacity: 0.7;
-            transition: all 0.3s;
-            display: block; 
-        }
-
-        /* ESTILO PARA TU LOGO GIGANTE (Featured) */
-        .slide.featured-sponsor img {
-            max-height: 150px; /* ¡AHORA ES GIGANTE! */
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
-        .slide img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1);
-            cursor: pointer;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-250px * 14)); }
-        }
 
         /* --- FOOTER --- */
         footer {
@@ -280,6 +292,9 @@
             .merch-info { padding: 30px 20px; text-align: center; }
             .footer-content { justify-content: center; text-align: center; }
             .footer-left, .footer-right { text-align: center; width: 100%; }
+            
+            /* Ajuste para que el logo gigante no rompa el celular */
+            .logo-item.giant img { max-height: 120px !important; }
         }
     </style>
 </head>
@@ -320,6 +335,20 @@
         </div>
     </section>
 
+    <section class="hybrid-scroll-container collaborators-bg">
+        <h3 class="section-header-text">Comunidades & Crews Aliados</h3>
+        
+        <div class="scroller-track" id="collab-track">
+            <div class="logo-item"><img src="baby.png" alt="Baby Rollers"></div>
+            <div class="logo-item"><img src="clandestinos.png" alt="Clan Destinos"></div>
+            <div class="logo-item"><img src="correcaminos.png" alt="Correcaminos"></div>
+            <div class="logo-item"><img src="octos.jpeg" alt="Octo Rollers"></div>
+            <div class="logo-item"><img src="rumx.jpeg" alt="Rumx"></div>
+            <div class="logo-item"><img src="saw.png" alt="Saw Rutas"></div>
+            <div class="logo-item"><img src="unicornixs.jpeg" alt="Unicornixs"></div>
+        </div>
+    </section>
+
     <section class="schedule-section">
         <h2 class="section-title">Rutas Oficiales</h2>
         <div class="grid-dias">
@@ -346,54 +375,30 @@
         </div>
     </section>
 
-    <section class="sponsors-section">
-        <h3 class="sponsors-title">Patrocinadores Oficiales</h3>
-        <div class="slider">
-            <div class="slide-track">
-                
-                <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
-
-                <div class="slide featured-sponsor">
-                    <a href="https://www.instagram.com/dragonandroll/" target="_blank">
-                        <img src="logo0.jpeg" alt="Dragon And Roll">
-                    </a>
-                </div>
-
-                <div class="slide"><img src="logo3.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo4.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo5.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo6.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo7.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo8.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo9.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo10.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo11.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo12.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo13.jpeg" alt="Sponsor"></div>
-
-                <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
-
-                <div class="slide featured-sponsor">
-                    <a href="https://www.instagram.com/dragonandroll/" target="_blank">
-                        <img src="logo0.jpeg" alt="Dragon And Roll">
-                    </a>
-                </div>
-
-                <div class="slide"><img src="logo3.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo4.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo5.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo6.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo7.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo8.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo9.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo10.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo11.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo12.jpeg" alt="Sponsor"></div>
-                <div class="slide"><img src="logo13.jpeg" alt="Sponsor"></div>
-
+    <section class="hybrid-scroll-container sponsors-bg">
+        <h3 class="section-header-text">Patrocinadores Oficiales</h3>
+        
+        <div class="scroller-track" id="sponsor-track">
+            <div class="logo-item"><img src="logo1.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo2.jpeg" alt="Sponsor"></div>
+            
+            <div class="logo-item giant">
+                <a href="https://www.instagram.com/dragonandroll/" target="_blank">
+                    <img src="logo0.jpeg" alt="Dragon And Roll">
+                </a>
             </div>
+
+            <div class="logo-item"><img src="logo3.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo4.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo5.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo6.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo7.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo8.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo9.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo10.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo11.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo12.jpeg" alt="Sponsor"></div>
+            <div class="logo-item"><img src="logo13.jpeg" alt="Sponsor"></div>
         </div>
     </section>
 
@@ -410,6 +415,67 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Esta función hace la magia: mueve solo, pero respeta tu dedo
+        function activarScrollerHibrido(idTrack, velocidad) {
+            const track = document.getElementById(idTrack);
+            if (!track) return;
+
+            // 1. Duplicar contenido para efecto infinito
+            // Clonamos los hijos y los pegamos al final
+            const items = Array.from(track.children);
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                track.appendChild(clone);
+            });
+            // Una vez más por seguridad en pantallas grandes
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                track.appendChild(clone);
+            });
+
+            let pausado = false;
+            let animationId;
+
+            // Función de animación
+            function autoScroll() {
+                if (!pausado) {
+                    track.scrollLeft += velocidad;
+                    
+                    // Si llegamos a la mitad (donde empieza el clon), reseteamos a 0
+                    // Esto crea la ilusión de que nunca termina
+                    if (track.scrollLeft >= (track.scrollWidth / 3)) {
+                        track.scrollLeft = 0;
+                    }
+                }
+                animationId = requestAnimationFrame(autoScroll);
+            }
+
+            // Iniciar animación
+            autoScroll();
+
+            // EVENTOS DE INTERACCIÓN (Para que tú lo muevas)
+            
+            // Si el mouse entra o tocas la pantalla -> PAUSA
+            track.addEventListener('mouseenter', () => pausado = true);
+            track.addEventListener('touchstart', () => pausado = true);
+
+            // Si sacas el mouse -> REANUDA
+            track.addEventListener('mouseleave', () => pausado = false);
+            
+            // Si dejas de tocar la pantalla -> REANUDA (con un pequeño retraso)
+            track.addEventListener('touchend', () => {
+                setTimeout(() => pausado = false, 1000);
+            });
+        }
+
+        // Activar para Colaboradores (Velocidad 1)
+        activarScrollerHibrido('collab-track', 0.8);
+        
+        // Activar para Patrocinadores (Velocidad un poco más rápida)
+        activarScrollerHibrido('sponsor-track', 1.0);
+    </script>
 
 </body>
 </html>
