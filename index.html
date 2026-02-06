@@ -174,7 +174,7 @@
             background: #000;
             border-top: 1px solid #333;
             overflow: hidden;
-            margin-top: auto; /* Empuja el footer al final si sobra espacio */
+            margin-top: auto;
         }
 
         .sponsors-title {
@@ -216,12 +216,15 @@
             filter: grayscale(100%); 
             opacity: 0.7;
             transition: all 0.3s;
+            /* Importante: para que la imagen dentro del link se comporte bien */
+            display: block; 
         }
 
         .slide img:hover {
             filter: grayscale(0%);
             opacity: 1;
             transform: scale(1.1);
+            cursor: pointer;
         }
 
         @keyframes scroll {
@@ -229,7 +232,7 @@
             100% { transform: translateX(calc(-250px * 14)); }
         }
 
-        /* --- ESTILOS DEL FOOTER (Modificado) --- */
+        /* --- FOOTER --- */
         footer {
             background-color: #080808;
             border-top: 1px solid #222;
@@ -241,21 +244,14 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between; /* Uno a la izquierda, otro a la derecha */
+            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* Para que en celular se pongan uno abajo del otro */
+            flex-wrap: wrap;
             gap: 20px;
         }
 
-        .footer-left {
-            text-align: left;
-            font-size: 0.9rem;
-        }
-
-        .footer-right {
-            text-align: right;
-            font-size: 0.75rem; /* Un poco más pequeña pero legible */
-        }
+        .footer-left { text-align: left; font-size: 0.9rem; }
+        .footer-right { text-align: right; font-size: 0.75rem; }
 
         .author-link {
             color: var(--gold);
@@ -270,14 +266,11 @@
             text-shadow: 0 0 10px rgba(255,255,0,0.5);
         }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero { padding-top: 60px; }
             .merch-container { flex-direction: column; }
             .merch-gallery { grid-template-columns: 1fr; } 
             .merch-info { padding: 30px 20px; text-align: center; }
-            
-            /* Ajuste del footer en celular */
             .footer-content { justify-content: center; text-align: center; }
             .footer-left, .footer-right { text-align: center; width: 100%; }
         }
@@ -351,7 +344,12 @@
         <div class="slider">
             <div class="slide-track">
                 
-                <div class="slide"><img src="logo0.jpeg" alt="Sponsor"></div>
+                <div class="slide">
+                    <a href="https://www.instagram.com/dragonandroll/" target="_blank">
+                        <img src="logo0.jpeg" alt="Dragon And Roll">
+                    </a>
+                </div>
+
                 <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo3.jpeg" alt="Sponsor"></div>
@@ -366,7 +364,12 @@
                 <div class="slide"><img src="logo12.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo13.jpeg" alt="Sponsor"></div>
 
-                <div class="slide"><img src="logo0.jpeg" alt="Sponsor"></div>
+                <div class="slide">
+                    <a href="https://www.instagram.com/dragonandroll/" target="_blank">
+                        <img src="logo0.jpeg" alt="Dragon And Roll">
+                    </a>
+                </div>
+
                 <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
                 <div class="slide"><img src="logo3.jpeg" alt="Sponsor"></div>
@@ -390,7 +393,6 @@
             <div class="footer-left">
                 &copy; 2026 Festival Nacional Roller CDMX
             </div>
-
             <div class="footer-right">
                 Hecha por 
                 <a href="https://www.instagram.com/kmbcmb/" target="_blank" class="author-link">
