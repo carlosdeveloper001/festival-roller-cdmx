@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -77,8 +78,6 @@
             max-width: 650px;
             height: auto;
             margin-bottom: 30px;
-            /* Quitamos el drop-shadow en CSS para mejorar rendimiento en móviles viejos, 
-               si la imagen ya tiene buena calidad no es indispensable */
             filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
         }
 
@@ -180,8 +179,7 @@
         .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); background-color: #1ebe57; }
 
 
-        /* --- ESTILOS DE LOS CARRUSELES HÍBRIDOS (AUTO + MANUAL) --- */
-        
+        /* --- ESTILOS DE LOS CARRUSELES HÍBRIDOS --- */
         .hybrid-scroll-container {
             width: 100%;
             overflow: hidden; 
@@ -210,7 +208,6 @@
             font-weight: 700;
         }
 
-        /* El contenedor que se desplaza */
         .scroller-track {
             display: flex;
             gap: 40px; 
@@ -222,10 +219,7 @@
             -ms-overflow-style: none;
         }
         .scroller-track::-webkit-scrollbar { display: none; }
-
-        .scroller-track:active {
-            cursor: grabbing; 
-        }
+        .scroller-track:active { cursor: grabbing; }
 
         .logo-item {
             flex: 0 0 auto;
@@ -234,7 +228,6 @@
             justify-content: center;
         }
 
-        /* AJUSTE PARA MÓVIL: Agregamos contain: content para mejorar renderizado */
         .logo-item img {
             max-width: 100%;
             height: auto;
@@ -243,7 +236,6 @@
             opacity: 0.7;
             transition: all 0.3s;
             border-radius: 8px;
-            /* Propiedad para que el navegador sepa el tamaño antes de cargar */
             aspect-ratio: 3/2; 
             object-fit: contain;
         }
@@ -259,7 +251,6 @@
             filter: grayscale(0%) !important; 
             opacity: 1 !important; 
         }
-
 
         /* --- ITINERARIO --- */
         .schedule-section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
@@ -362,6 +353,7 @@
             <div class="logo-item"><img src="correcaminos.jpg" alt="Correcaminos"></div>
             
             <div class="logo-item"><img src="octos.png" alt="Octo Rollers"></div>
+            
             <div class="logo-item"><img src="rumx.jpeg" alt="Rumx"></div>
             
             <div class="logo-item"><img src="saw.png" alt="Saw Rutas"></div>
@@ -442,7 +434,6 @@
             const track = document.getElementById(idTrack);
             if (!track) return;
 
-            // Duplicar contenido para efecto infinito
             const items = Array.from(track.children);
             items.forEach(item => {
                 const clone = item.cloneNode(true);
@@ -468,7 +459,6 @@
 
             autoScroll();
 
-            // Eventos para detener/reanudar
             track.addEventListener('mouseenter', () => pausado = true);
             track.addEventListener('touchstart', () => pausado = true, {passive: true});
             track.addEventListener('mouseleave', () => pausado = false);
@@ -477,10 +467,7 @@
             });
         }
 
-        // Activar Colaboradores
         activarScrollerHibrido('collab-track', 0.8);
-        
-        // Activar Patrocinadores
         activarScrollerHibrido('sponsor-track', 1.0);
     </script>
 
