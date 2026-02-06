@@ -9,8 +9,21 @@
     <meta name="description" content="Festival Nacional Roller 2026 en CDMX. Evento de patinaje, rutas, cultura y comunidad.">
 
     <title>Festival Nacional Roller 2026 | CDMX</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+    </noscript>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
+
+    <link rel="preload" as="image" href="logo-festival.jpg">
     
     <style>
         /* --- ESTILOS GENERALES --- */
@@ -64,6 +77,8 @@
             max-width: 650px;
             height: auto;
             margin-bottom: 30px;
+            /* Quitamos el drop-shadow en CSS para mejorar rendimiento en móviles viejos, 
+               si la imagen ya tiene buena calidad no es indispensable */
             filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
         }
 
@@ -169,7 +184,7 @@
         
         .hybrid-scroll-container {
             width: 100%;
-            overflow: hidden; /* Esconde scrollbars feos */
+            overflow: hidden; 
             position: relative;
             padding: 40px 0;
         }
@@ -198,20 +213,18 @@
         /* El contenedor que se desplaza */
         .scroller-track {
             display: flex;
-            gap: 40px; /* Espacio entre logos */
-            overflow-x: auto; /* Permite scroll manual */
+            gap: 40px; 
+            overflow-x: auto; 
             padding: 10px 20px;
             width: 100%;
-            cursor: grab; /* Manita para agarrar */
-            
-            /* Ocultar barra de scroll pero mantener funcionalidad */
+            cursor: grab; 
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
         .scroller-track::-webkit-scrollbar { display: none; }
 
         .scroller-track:active {
-            cursor: grabbing; /* Manita cerrada al agarrar */
+            cursor: grabbing; 
         }
 
         .logo-item {
@@ -221,28 +234,30 @@
             justify-content: center;
         }
 
+        /* AJUSTE PARA MÓVIL: Agregamos contain: content para mejorar renderizado */
         .logo-item img {
             max-width: 100%;
             height: auto;
-            max-height: 90px; /* Altura estándar */
+            max-height: 90px; 
             filter: grayscale(100%);
             opacity: 0.7;
             transition: all 0.3s;
             border-radius: 8px;
+            /* Propiedad para que el navegador sepa el tamaño antes de cargar */
+            aspect-ratio: 3/2; 
+            object-fit: contain;
         }
 
-        /* Efecto Hover general */
         .logo-item img:hover {
             filter: grayscale(0%);
             opacity: 1;
             transform: scale(1.1);
         }
 
-        /* LOGO GIGANTE (Tu patrocinador) - SIN SOMBRA DORADA */
         .logo-item.giant img {
-            max-height: 150px !important; /* Altura GIGANTE */
-            filter: grayscale(0%) !important; /* Siempre a color */
-            opacity: 1 !important; /* Siempre visible */
+            max-height: 150px !important; 
+            filter: grayscale(0%) !important; 
+            opacity: 1 !important; 
         }
 
 
@@ -297,7 +312,6 @@
             .footer-content { justify-content: center; text-align: center; }
             .footer-left, .footer-right { text-align: center; width: 100%; }
             
-            /* Ajuste para que el logo gigante no rompa el celular */
             .logo-item.giant img { max-height: 120px !important; }
         }
     </style>
