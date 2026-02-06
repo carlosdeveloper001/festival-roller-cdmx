@@ -12,7 +12,7 @@
         :root {
             --gold: #FFD700;
             --gold-dim: #D4AF37;
-            --neon-yellow: #FFFF00; /* Color del Jersey */
+            --neon-yellow: #FFFF00;
             --black-bg: #050505;
             --text-white: #ffffff;
             --whatsapp-green: #25D366;
@@ -39,47 +39,43 @@
             opacity: 0.4;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (Encabezado Principal) --- */
         .hero {
-            min-height: 85vh;
+            min-height: 90vh; /* Un poco más alto para que quepa bien el logo */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, rgba(5,5,5,1) 90%);
+            padding: 40px 20px;
+            /* Mantenemos el gradiente sutil de fondo, se mezcla bien con el logo */
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, rgba(5,5,5,1) 80%);
             border-bottom: 1px solid #333;
         }
 
-        .hero h2 {
-            font-size: 1.2rem;
-            letter-spacing: 4px;
-            color: #fff;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            font-family: 'Cinzel', serif; 
-            font-size: 3.5rem;
-            color: var(--gold);
-            text-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
-            line-height: 1.1;
-            margin-bottom: 20px;
+        /* Estilo nuevo para la imagen del logo */
+        .hero-logo {
+            width: 100%; /* Ocupa el ancho disponible en celular */
+            max-width: 650px; /* Pero no pasa de 650px en compu */
+            height: auto; /* Mantiene la proporción */
+            margin-bottom: 30px; /* Espacio debajo del logo */
+            /* Sombra para potenciar el efecto neón */
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
         }
 
         .fecha-box {
             border: 2px solid var(--gold);
             padding: 15px 30px;
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* Un poco más chico para equilibrar con el logo grande */
             font-weight: 700;
             color: var(--gold);
             background-color: rgba(0,0,0,0.6);
             margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
         }
 
-        /* --- SECCIÓN NUEVA: JERSEY OFICIAL (PRODUCTO) --- */
+        /* --- SECCIÓN JERSEY --- */
         .merch-section {
             background: linear-gradient(90deg, #111 0%, #0a0a0a 100%);
             padding: 60px 20px;
@@ -107,11 +103,10 @@
             position: relative;
         }
 
-        /* Aquí configuramos la imagen para que se ajuste sola */
         .merch-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Hace que la foto rellene el espacio sin deformarse */
+            object-fit: cover;
             display: block;
         }
 
@@ -167,7 +162,6 @@
             margin-right: 10px;
         }
 
-        /* Botón de WhatsApp */
         .btn-whatsapp {
             background-color: var(--whatsapp-green);
             color: white;
@@ -223,11 +217,11 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero { padding-top: 60px; } /* Un poco más de espacio arriba en cel */
             .merch-container { flex-direction: column; }
             .merch-image { min-height: 300px; }
             .merch-info { padding: 30px 20px; text-align: center; }
-            .label-new { margin: 0 auto 15px; } /* Centrar etiqueta en móvil */
+            .label-new { margin: 0 auto 15px; }
             .merch-features ul { text-align: left; display: inline-block; }
         }
     </style>
@@ -237,8 +231,8 @@
     <div class="background-stars"></div>
 
     <header class="hero">
-        <h2>Ciudad de México</h2>
-        <h1>Festival Nacional<br>Roller 2026</h1>
+        <img src="logo-festival.jpeg" alt="Logo Festival Nacional Roller CDMX" class="hero-logo">
+        
         <div class="fecha-box">13 - 16 DE MARZO 2026</div>
         
         <p style="margin-top:20px; font-size: 0.9rem; color: #aaa;">DESLIZA PARA VER LA MERCANCÍA OFICIAL</p>
@@ -247,16 +241,13 @@
 
     <section class="merch-section" id="jersey">
         <div class="merch-container">
-            
             <div class="merch-image">
                 <img src="jersey.jpeg" alt="Jersey Oficial Roller CDMX 2026">
             </div>
-
             <div class="merch-info">
                 <span class="label-new">EDICIÓN LIMITADA</span>
                 <h2 class="merch-title">Jersey Oficial 2026</h2>
                 <div class="merch-price">$330 MXN</div>
-                
                 <div class="merch-features">
                     <ul>
                         <li><i class="fas fa-check"></i> Dry-Fit Premium</li>
@@ -265,7 +256,6 @@
                         <li><i class="fas fa-check"></i> Corte Unisex</li>
                     </ul>
                 </div>
-
                 <a href="https://wa.me/5215627538595?text=Hola,%20me%20interesa%20pedir%20el%20Jersey%20Oficial%20del%20Festival%20Roller" target="_blank" class="btn-whatsapp">
                     <i class="fab fa-whatsapp"></i> PEDIR AHORA
                 </a>
