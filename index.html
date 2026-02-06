@@ -233,12 +233,12 @@
             transform: scale(1.1);
         }
 
-        /* LOGO GIGANTE (Tu patrocinador) */
+        /* LOGO GIGANTE (Tu patrocinador) - SIN SOMBRA DORADA */
         .logo-item.giant img {
             max-height: 150px !important; /* Altura GIGANTE */
             filter: grayscale(0%) !important; /* Siempre a color */
             opacity: 1 !important; /* Siempre visible */
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)) !important;
+            /* Se eliminó el drop-shadow dorado aquí */
         }
 
 
@@ -339,12 +339,12 @@
         <h3 class="section-header-text">Comunidades & Crews Aliados</h3>
         
         <div class="scroller-track" id="collab-track">
-            <div class="logo-item"><img src="baby.png" alt="Baby Rollers"></div>
-            <div class="logo-item"><img src="clandestinos.png" alt="Clan Destinos"></div>
-            <div class="logo-item"><img src="correcaminos.png" alt="Correcaminos"></div>
+            <div class="logo-item"><img src="baby.jpg" alt="Baby Rollers"></div>
+            <div class="logo-item"><img src="clandestinos.jpg" alt="Clan Destinos"></div>
+            <div class="logo-item"><img src="correcaminos.jpg" alt="Correcaminos"></div>
             <div class="logo-item"><img src="octos.jpeg" alt="Octo Rollers"></div>
             <div class="logo-item"><img src="rumx.jpeg" alt="Rumx"></div>
-            <div class="logo-item"><img src="saw.png" alt="Saw Rutas"></div>
+            <div class="logo-item"><img src="saw.jpg" alt="Saw Rutas"></div>
             <div class="logo-item"><img src="unicornixs.jpeg" alt="Unicornixs"></div>
         </div>
     </section>
@@ -417,19 +417,16 @@
     </footer>
 
     <script>
-        // Esta función hace la magia: mueve solo, pero respeta tu dedo
         function activarScrollerHibrido(idTrack, velocidad) {
             const track = document.getElementById(idTrack);
             if (!track) return;
 
-            // 1. Duplicar contenido para efecto infinito
-            // Clonamos los hijos y los pegamos al final
+            // Duplicar contenido para efecto infinito
             const items = Array.from(track.children);
             items.forEach(item => {
                 const clone = item.cloneNode(true);
                 track.appendChild(clone);
             });
-            // Una vez más por seguridad en pantallas grandes
             items.forEach(item => {
                 const clone = item.cloneNode(true);
                 track.appendChild(clone);
@@ -438,13 +435,9 @@
             let pausado = false;
             let animationId;
 
-            // Función de animación
             function autoScroll() {
                 if (!pausado) {
                     track.scrollLeft += velocidad;
-                    
-                    // Si llegamos a la mitad (donde empieza el clon), reseteamos a 0
-                    // Esto crea la ilusión de que nunca termina
                     if (track.scrollLeft >= (track.scrollWidth / 3)) {
                         track.scrollLeft = 0;
                     }
@@ -452,28 +445,21 @@
                 animationId = requestAnimationFrame(autoScroll);
             }
 
-            // Iniciar animación
             autoScroll();
 
-            // EVENTOS DE INTERACCIÓN (Para que tú lo muevas)
-            
-            // Si el mouse entra o tocas la pantalla -> PAUSA
+            // Eventos para detener/reanudar
             track.addEventListener('mouseenter', () => pausado = true);
-            track.addEventListener('touchstart', () => pausado = true);
-
-            // Si sacas el mouse -> REANUDA
+            track.addEventListener('touchstart', () => pausado = true, {passive: true});
             track.addEventListener('mouseleave', () => pausado = false);
-            
-            // Si dejas de tocar la pantalla -> REANUDA (con un pequeño retraso)
             track.addEventListener('touchend', () => {
                 setTimeout(() => pausado = false, 1000);
             });
         }
 
-        // Activar para Colaboradores (Velocidad 1)
+        // Activar Colaboradores
         activarScrollerHibrido('collab-track', 0.8);
         
-        // Activar para Patrocinadores (Velocidad un poco más rápida)
+        // Activar Patrocinadores
         activarScrollerHibrido('sponsor-track', 1.0);
     </script>
 
