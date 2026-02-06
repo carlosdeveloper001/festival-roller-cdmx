@@ -25,9 +25,11 @@
             background-color: var(--black-bg);
             color: var(--text-white);
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* FONDO DE ESTRELLAS */
         .background-stars {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -39,34 +41,31 @@
             opacity: 0.4;
         }
 
-        /* --- HERO SECTION (Encabezado Principal) --- */
+        /* --- HERO SECTION --- */
         .hero {
-            min-height: 90vh; /* Un poco más alto para que quepa bien el logo */
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 40px 20px;
-            /* Mantenemos el gradiente sutil de fondo, se mezcla bien con el logo */
             background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, rgba(5,5,5,1) 80%);
             border-bottom: 1px solid #333;
         }
 
-        /* Estilo nuevo para la imagen del logo */
         .hero-logo {
-            width: 100%; /* Ocupa el ancho disponible en celular */
-            max-width: 650px; /* Pero no pasa de 650px en compu */
-            height: auto; /* Mantiene la proporción */
-            margin-bottom: 30px; /* Espacio debajo del logo */
-            /* Sombra para potenciar el efecto neón */
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            margin-bottom: 30px;
             filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
         }
 
         .fecha-box {
             border: 2px solid var(--gold);
             padding: 15px 30px;
-            font-size: 1.3rem; /* Un poco más chico para equilibrar con el logo grande */
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--gold);
             background-color: rgba(0,0,0,0.6);
@@ -77,38 +76,43 @@
 
         /* --- SECCIÓN JERSEY --- */
         .merch-section {
-            background: linear-gradient(90deg, #111 0%, #0a0a0a 100%);
+            background: linear-gradient(180deg, #111 0%, #050505 100%);
             padding: 60px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             border-bottom: 2px solid var(--neon-yellow);
             border-top: 2px solid var(--neon-yellow);
-            box-shadow: 0 0 30px rgba(255, 255, 0, 0.1);
+            box-shadow: 0 0 40px rgba(255, 255, 0, 0.15);
         }
 
         .merch-container {
             display: flex;
             flex-wrap: wrap;
-            max-width: 1100px;
-            background: rgba(255,255,255,0.05);
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.02);
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid #333;
         }
 
-        .merch-image {
-            flex: 1 1 400px;
-            min-height: 400px;
-            position: relative;
+        .merch-gallery {
+            flex: 1 1 500px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            align-items: center;
         }
 
-        .merch-image img {
+        .merch-gallery img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s;
         }
+
+        .merch-gallery img:hover { transform: scale(1.05); border-color: var(--neon-yellow); }
 
         .merch-info {
             flex: 1 1 400px;
@@ -131,42 +135,18 @@
             width: fit-content;
         }
 
-        .merch-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 10px;
-        }
+        .merch-title { font-family: 'Cinzel', serif; font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
+        .merch-price { font-size: 3.5rem; font-weight: 900; color: var(--neon-yellow); margin-bottom: 20px; text-shadow: 0 0 15px rgba(255, 255, 0, 0.3); }
 
-        .merch-price {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--neon-yellow);
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
-        }
-
-        .merch-features ul {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .merch-features li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            color: #ccc;
-        }
-
-        .merch-features li i {
-            color: var(--neon-yellow);
-            margin-right: 10px;
-        }
+        .merch-features ul { list-style: none; margin-bottom: 30px; }
+        .merch-features li { margin-bottom: 12px; font-size: 1.1rem; color: #ccc; border-bottom: 1px solid #222; padding-bottom: 5px; }
+        .merch-features li i { color: var(--neon-yellow); margin-right: 10px; }
 
         .btn-whatsapp {
             background-color: var(--whatsapp-green);
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 18px 30px;
             font-size: 1.2rem;
             font-weight: bold;
             border-radius: 50px;
@@ -174,55 +154,132 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.2);
         }
-
-        .btn-whatsapp:hover {
-            transform: scale(1.05);
-            background-color: #1ebe57;
-        }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); background-color: #1ebe57; }
 
         /* --- ITINERARIO --- */
-        .schedule-section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-        }
-
-        .grid-dias {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card-dia {
-            background: rgba(20, 20, 20, 0.8);
-            border-top: 3px solid var(--gold-dim);
-            padding: 20px;
-            text-align: center;
-        }
-
+        .schedule-section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; font-family: 'Cinzel', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 40px; }
+        .grid-dias { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card-dia { background: rgba(20, 20, 20, 0.8); border-top: 3px solid var(--gold-dim); padding: 20px; text-align: center; }
         .dia-numero { font-family: 'Cinzel'; font-size: 1.5rem; color: var(--gold); }
         .ruta-nombre { font-weight: bold; margin: 10px 0; }
         .ruta-desc { color: #aaa; font-size: 0.9rem; }
 
+        /* --- SLIDER PATROCINADORES --- */
+        .sponsors-section {
+            padding: 40px 0;
+            background: #000;
+            border-top: 1px solid #333;
+            overflow: hidden;
+            margin-top: auto; /* Empuja el footer al final si sobra espacio */
+        }
+
+        .sponsors-title {
+            text-align: center;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .slider {
+            background: transparent;
+            height: 100px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .slide-track {
+            display: flex;
+            width: calc(250px * 28); 
+            animation: scroll 40s linear infinite;
+        }
+
+        .slide {
+            height: 100px;
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .slide img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: grayscale(100%); 
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .slide img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 14)); }
+        }
+
+        /* --- ESTILOS DEL FOOTER (Modificado) --- */
+        footer {
+            background-color: #080808;
+            border-top: 1px solid #222;
+            padding: 30px 20px;
+            color: #666;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Uno a la izquierda, otro a la derecha */
+            align-items: center;
+            flex-wrap: wrap; /* Para que en celular se pongan uno abajo del otro */
+            gap: 20px;
+        }
+
+        .footer-left {
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .footer-right {
+            text-align: right;
+            font-size: 0.75rem; /* Un poco más pequeña pero legible */
+        }
+
+        .author-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            margin-left: 5px;
+        }
+        
+        .author-link:hover {
+            color: var(--neon-yellow);
+            text-shadow: 0 0 10px rgba(255,255,0,0.5);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero { padding-top: 60px; } /* Un poco más de espacio arriba en cel */
+            .hero { padding-top: 60px; }
             .merch-container { flex-direction: column; }
-            .merch-image { min-height: 300px; }
+            .merch-gallery { grid-template-columns: 1fr; } 
             .merch-info { padding: 30px 20px; text-align: center; }
-            .label-new { margin: 0 auto 15px; }
-            .merch-features ul { text-align: left; display: inline-block; }
+            
+            /* Ajuste del footer en celular */
+            .footer-content { justify-content: center; text-align: center; }
+            .footer-left, .footer-right { text-align: center; width: 100%; }
         }
     </style>
 </head>
@@ -232,17 +289,16 @@
 
     <header class="hero">
         <img src="logo-festival.png" alt="Logo Festival Nacional Roller CDMX" class="hero-logo">
-        
         <div class="fecha-box">13 - 16 DE MARZO 2026</div>
-        
         <p style="margin-top:20px; font-size: 0.9rem; color: #aaa;">DESLIZA PARA VER LA MERCANCÍA OFICIAL</p>
         <div style="font-size: 2rem; color: var(--gold); margin-top: 10px;">&#8595;</div>
     </header>
 
     <section class="merch-section" id="jersey">
         <div class="merch-container">
-            <div class="merch-image">
-                <img src="jersey.jpeg" alt="Jersey Oficial Roller CDMX 2026">
+            <div class="merch-gallery">
+                <img src="jersey-front.jpeg" alt="Jersey Vista Frontal CDMX">
+                <img src="jersey-back.jpeg" alt="Jersey Vista Espalda">
             </div>
             <div class="merch-info">
                 <span class="label-new">EDICIÓN LIMITADA</span>
@@ -250,16 +306,16 @@
                 <div class="merch-price">$330 MXN</div>
                 <div class="merch-features">
                     <ul>
-                        <li><i class="fas fa-check"></i> Dry-Fit Premium</li>
-                        <li><i class="fas fa-check"></i> Full Sublimado</li>
-                        <li><i class="fas fa-check"></i> Diseño Urbano Impactante</li>
-                        <li><i class="fas fa-check"></i> Corte Unisex</li>
+                        <li><i class="fas fa-check"></i> <strong>Diseño:</strong> Urbano / Graffiti Neon</li>
+                        <li><i class="fas fa-check"></i> <strong>Tela:</strong> Dry-Fit Premium</li>
+                        <li><i class="fas fa-check"></i> <strong>Corte:</strong> Unisex (Full Sublimado)</li>
+                        <li><i class="fas fa-check"></i> <strong>Detalle:</strong> Alas en mangas y espalda</li>
                     </ul>
                 </div>
                 <a href="https://wa.me/5215627538595?text=Hola,%20me%20interesa%20pedir%20el%20Jersey%20Oficial%20del%20Festival%20Roller" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> PEDIR AHORA
+                    <i class="fab fa-whatsapp"></i> PEDIR POR WHATSAPP
                 </a>
-                <p style="margin-top: 15px; font-size: 0.8rem; color: #666;">Te atenderemos directamente por WhatsApp</p>
+                <p style="margin-top: 15px; font-size: 0.8rem; color: #666;">Envía mensaje directo para apartar tu talla.</p>
             </div>
         </div>
     </section>
@@ -290,8 +346,58 @@
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 40px; color: #666; font-size: 0.8rem; border-top: 1px solid #333;">
-        <p>&copy; 2026 Festival Nacional Roller CDMX</p>
+    <section class="sponsors-section">
+        <h3 class="sponsors-title">Patrocinadores Oficiales</h3>
+        <div class="slider">
+            <div class="slide-track">
+                
+                <div class="slide"><img src="logo0.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo3.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo4.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo5.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo6.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo7.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo8.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo9.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo10.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo11.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo12.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo13.jpeg" alt="Sponsor"></div>
+
+                <div class="slide"><img src="logo0.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo1.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo2.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo3.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo4.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo5.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo6.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo7.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo8.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo9.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo10.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo11.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo12.jpeg" alt="Sponsor"></div>
+                <div class="slide"><img src="logo13.jpeg" alt="Sponsor"></div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                &copy; 2026 Festival Nacional Roller CDMX
+            </div>
+
+            <div class="footer-right">
+                Hecha por 
+                <a href="https://www.instagram.com/kmbcmb/" target="_blank" class="author-link">
+                    Carlos (@kmbcmb)
+                </a>
+            </div>
+        </div>
     </footer>
 
 </body>
