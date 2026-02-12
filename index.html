@@ -37,6 +37,7 @@
             --text-white: #ffffff;
             --whatsapp-green: #25D366;
             --danger-red: #ff4444;
+            --info-blue: #00d4ff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -257,11 +258,36 @@
         /* --- ITINERARIO --- */
         .schedule-section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
         .section-title { text-align: center; font-family: 'Cinzel', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 40px; }
-        .grid-dias { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card-dia { background: rgba(20, 20, 20, 0.8); border-top: 3px solid var(--gold-dim); padding: 20px; text-align: center; }
+        
+        /* Grid de 2 columnas para que quepan bien los textos largos */
+        .grid-dias { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+        }
+        
+        .card-dia { 
+            background: rgba(20, 20, 20, 0.8); 
+            border-top: 3px solid var(--gold-dim); 
+            padding: 25px; 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+        }
+        
         .dia-numero { font-family: 'Cinzel'; font-size: 1.5rem; color: var(--gold); }
-        .ruta-nombre { font-weight: bold; margin: 10px 0; }
-        .ruta-desc { color: #aaa; font-size: 0.9rem; }
+        .ruta-nombre { font-weight: bold; margin: 10px 0; font-size: 1.2rem; }
+        .ruta-desc { color: #aaa; font-size: 0.95rem; margin-bottom: 15px; }
+        
+        /* Listas dentro de las tarjetas */
+        .detail-list {
+            text-align: left;
+            margin: 10px 0;
+            padding-left: 20px;
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+        .detail-list li { margin-bottom: 5px; }
 
         /* --- FOOTER --- */
         footer {
@@ -304,7 +330,6 @@
             .merch-info { padding: 30px 20px; text-align: center; }
             .footer-content { justify-content: center; text-align: center; }
             .footer-left, .footer-right { text-align: center; width: 100%; }
-            
             .logo-item.giant img { max-height: 120px !important; }
         }
     </style>
@@ -350,48 +375,13 @@
         <h3 class="section-header-text">Comunidades & Crews Aliados</h3>
         
         <div class="scroller-track" id="collab-track">
-            
-            <div class="logo-item">
-                <a href="https://www.instagram.com/baby.rollers?igsh=MTlydHp6dXk4Z3V5cw==" target="_blank">
-                    <img src="baby.jpg" alt="Baby Rollers">
-                </a>
-            </div>
-
-            <div class="logo-item">
-                <a href="https://www.instagram.com/rutasclandestinas?igsh=MTlwbGl5eGdjeDh3cA==" target="_blank">
-                    <img src="clandestinos.jpg" alt="Clan Destinos">
-                </a>
-            </div>
-
-            <div class="logo-item">
-                <a href="https://www.instagram.com/correcaminos_rollers?igsh=MTBsaGNjMno1ZWRwcw==" target="_blank">
-                    <img src="correcaminos.jpg" alt="Correcaminos">
-                </a>
-            </div>
-            
-            <div class="logo-item">
-                <a href="https://www.instagram.com/octos_en_ruedas?igsh=MWRwbG93NHZwdGRhZA==" target="_blank">
-                    <img src="octos.png" alt="Octo Rollers">
-                </a>
-            </div>
-
-            <div class="logo-item">
-                <a href="https://www.instagram.com/rollers_unidos_mexico?igsh=MTV0cXFzdTdsY3h6MQ==" target="_blank">
-                    <img src="rumx.jpeg" alt="Rumx">
-                </a>
-            </div>
-            
-            <div class="logo-item">
-                <a href="https://www.instagram.com/sawrutasmx?igsh=cXM5Nzhoa2N4b3Zy" target="_blank">
-                    <img src="saw.png" alt="Saw Rutas">
-                </a>
-            </div>
-            
-            <div class="logo-item">
-                <a href="https://www.instagram.com/unicornixs.rollers?igsh=cDRyczIzcThrb2h4" target="_blank">
-                    <img src="unicornixs.jpg" alt="Unicornixs">
-                </a>
-            </div>
+            <div class="logo-item"><a href="https://www.instagram.com/baby.rollers?igsh=MTlydHp6dXk4Z3V5cw==" target="_blank"><img src="baby.jpg" alt="Baby Rollers"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/rutasclandestinas?igsh=MTlwbGl5eGdjeDh3cA==" target="_blank"><img src="clandestinos.jpg" alt="Clan Destinos"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/correcaminos_rollers?igsh=MTBsaGNjMno1ZWRwcw==" target="_blank"><img src="correcaminos.jpg" alt="Correcaminos"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/octos_en_ruedas?igsh=MWRwbG93NHZwdGRhZA==" target="_blank"><img src="octos.png" alt="Octo Rollers"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/rollers_unidos_mexico?igsh=MTV0cXFzdTdsY3h6MQ==" target="_blank"><img src="rumx.jpeg" alt="Rumx"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/sawrutasmx?igsh=cXM5Nzhoa2N4b3Zy" target="_blank"><img src="saw.png" alt="Saw Rutas"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/unicornixs.rollers?igsh=cDRyczIzcThrb2h4" target="_blank"><img src="unicornixs.jpg" alt="Unicornixs"></a></div>
         </div>
     </section>
 
@@ -402,13 +392,16 @@
             <div class="card-dia">
                 <span class="dia-numero">VIERNES 13</span>
                 <h3 class="ruta-nombre">Noche de Dioses</h3>
-                <p class="ruta-desc" style="color: var(--neon-yellow); font-weight: bold;">Egipcios • Griegos • Mayas</p>
-                <div style="text-align: left; margin-top: 15px; font-size: 0.9rem; color: #ddd;">
+                <p class="ruta-desc" style="color: var(--neon-yellow);">Egipcios • Griegos • Mayas</p>
+                
+                <div style="text-align: left; margin-top: 10px; font-size: 0.9rem; color: #ddd;">
                     <p style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <strong>Cita:</strong> Parque México</p>
+                    
                     <div style="background-color: rgba(255,255,255,0.1); padding: 10px; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid var(--gold);">
                         <p style="margin:0; color: var(--gold); font-weight:bold;"><i class="fas fa-chalkboard-teacher"></i> 6:00 PM • Clínica Wizard</p>
                         <p style="margin:0; font-size: 0.75rem; color: #ccc;">(Actividad previa en el lugar)</p>
                     </div>
+
                     <p style="font-size: 1.1rem; color: var(--text-white); margin-bottom: 10px;"><i class="fas fa-flag" style="color: var(--neon-yellow);"></i> <strong>8:00 PM:</strong> SALIDA RUTAS</p>
                     <hr style="border-color: #333; margin: 10px 0;">
                     <p><strong>⚡ Avanzado (35km):</strong><br>A cargo de SAW y Baby Rollers</p>
@@ -420,16 +413,25 @@
             <div class="card-dia">
                 <span class="dia-numero">SÁBADO 14</span>
                 <h3 class="ruta-nombre">Xochimilco Experience</h3>
-                <p class="ruta-desc" style="color: var(--neon-yellow); font-weight: bold;">Temática: AMARILLO 💛</p>
-                <div style="text-align: left; margin-top: 15px; font-size: 0.9rem; color: #ddd;">
+                <p class="ruta-desc" style="color: var(--neon-yellow);">Temática: AMARILLO 💛</p>
+                <div style="text-align: left; margin-top: 10px; font-size: 0.9rem; color: #ddd;">
                     <p><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <strong>Cita:</strong> Monumento a la Revolución</p>
-                    <p><i class="far fa-clock" style="color: var(--gold);"></i> <strong>8:30 AM:</strong> Reunión</p>
-                    <p><i class="fas fa-skating" style="color: var(--gold);"></i> <strong>10:00 AM:</strong> Salida (26km)</p>
+                    <p><i class="far fa-clock" style="color: var(--gold);"></i> <strong>8:30 AM:</strong> Reunión / <strong>10:00 AM:</strong> Salida</p>
                     <p><i class="fas fa-map-marked-alt" style="color: var(--gold);"></i> <strong>Destino:</strong> Jardín Barrio 18</p>
+                    
                     <hr style="border-color: #333; margin: 10px 0;">
-                    <p><strong>🎉 Convivencia Final:</strong><br>Alimentos, Stands, Regalos y Sorpresas.</p>
+                    <p><strong>🎉 EXPERIENCIA COMPLETA:</strong></p>
+                    <ul class="detail-list">
+                        <li>🍽️ Zona de alimentos</li>
+                        <li>🧢 Stands de accesorios roller</li>
+                        <li>🥃 Experiencia destilados de pulque</li>
+                        <li>🚤 Opción a trajineras</li>
+                        <li>🎁 Más de 300 regalos de patrocinadores</li>
+                        <li>🔥 Sorpresa especial...</li>
+                    </ul>
+                    
                     <p style="margin-top:10px; color: var(--neon-yellow); font-size: 1rem; text-align: center; border: 1px solid var(--neon-yellow); border-radius: 5px; padding: 5px;">
-                        <strong>🎟️ Cover: $50 MXN</strong>
+                        <strong>🎟️ Recuperación: $50 MXN</strong>
                     </p>
                 </div>
             </div>
@@ -437,42 +439,68 @@
             <div class="card-dia" style="border-color: var(--danger-red);">
                 <span class="dia-numero">DOMINGO 15</span>
                 <h3 class="ruta-nombre">Gran Reto Teotihuacán</h3>
-                <p class="ruta-desc" style="color: var(--danger-red); font-weight: bold; font-size:1.1rem;">⚠️ NIVEL AVANZADO • 50KM</p>
-                <div style="text-align: left; margin-top: 15px; font-size: 0.9rem; color: #ddd;">
+                <p class="ruta-desc" style="color: var(--danger-red); font-weight: bold; font-size:1rem;">⚠️ NIVEL AVANZADO • 50KM</p>
+                <div style="text-align: left; margin-top: 10px; font-size: 0.9rem; color: #ddd;">
                     <p><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <strong>Cita:</strong> Explanada Zócalo CDMX</p>
                     <p><i class="far fa-clock" style="color: var(--gold);"></i> <strong>7:30 AM</strong> Cita | <strong>8:30 AM</strong> Salida</p>
-                    <p><i class="fas fa-map-marked-alt" style="color: var(--gold);"></i> <strong>Destino:</strong> San Juan Teotihuacán</p>
                     
-                    <div style="background: rgba(255, 68, 68, 0.1); border: 1px solid var(--danger-red); padding: 15px; border-radius: 8px; margin: 15px 0;">
-                        <p style="color: var(--danger-red); font-weight: bold; text-align: center; margin-bottom: 10px;">🚨 ¡ATENCIÓN! NO ES UN PASEO</p>
+                    <div style="background: rgba(255, 68, 68, 0.1); border: 1px solid var(--danger-red); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: var(--danger-red); font-weight: bold; text-align: center; margin-bottom: 5px;">🚨 ¡ATENCIÓN! NO ES UN PASEO</p>
+                        <p style="font-size:0.8rem; text-align:center;">Es un reto para cumplir al 100%</p>
                         
-                        <p style="font-weight: bold; color: var(--gold); margin-top: 10px;">REQUISITOS OBLIGATORIOS:</p>
-                        <ul style="font-size: 0.8rem; padding-left: 20px; margin-bottom: 10px;">
+                        <p style="font-weight: bold; color: var(--gold); margin-top: 10px; font-size:0.85rem;">REQUISITOS OBLIGATORIOS:</p>
+                        <ul class="detail-list" style="margin-top:5px;">
                             <li>Velocidad constante: 18 km/h (min 20km).</li>
                             <li>Manejo de altas velocidades en bajadas.</li>
-                            <li>Freno total y control absoluto.</li>
                         </ul>
 
-                        <p style="font-weight: bold; color: var(--gold);">RESTRICCIONES:</p>
-                        <ul style="font-size: 0.8rem; padding-left: 20px;">
+                        <p style="font-weight: bold; color: var(--gold); font-size:0.85rem;">RESTRICCIONES (Seguridad):</p>
+                        <ul class="detail-list" style="margin-top:5px;">
                             <li>🚫 Prohibido agarrarse de vehículos.</li>
                             <li>🚫 Prohibido salir de carriles marcados.</li>
-                            <li>🚗 Autos de apoyo siempre atrás del contingente.</li>
+                            <li>🚗 Autos de apoyo: SIEMPRE atrás del combo.</li>
                         </ul>
                     </div>
 
-                    <p style="text-align: center; font-size: 1rem; color: var(--neon-yellow); margin-top: 15px;">
-                        <strong>🎉 AFTER PARTY:</strong><br>Cactus Bar Teotihuacán 🍔🥃
+                    <p style="text-align: center; font-size: 0.9rem; color: var(--neon-yellow); margin-top: 10px;">
+                        <strong>🎉 AFTER PARTY:</strong><br>Cactus Bar Teotihuacán 🍔
                     </p>
                 </div>
             </div>
 
-            <div class="card-dia">
+            <div class="card-dia" style="border-color: var(--info-blue);">
                 <span class="dia-numero">LUNES 16</span>
-                <h3 class="ruta-nombre">Parres</h3>
-                <p class="ruta-desc">Ciclovía Cuernavaca</p>
-                <div style="text-align: left; margin-top: 15px; font-size: 0.9rem; color: #ddd;">
-                    <p><i class="fas fa-info-circle" style="color: var(--gold);"></i> Detalles próximamente...</p>
+                <h3 class="ruta-nombre">Cierre Épico: Parres</h3>
+                <p class="ruta-desc" style="color: var(--info-blue); font-weight: bold;">Ciclovía de Montaña ⛰️ • 55 KM</p>
+                <div style="text-align: left; margin-top: 10px; font-size: 0.9rem; color: #ddd;">
+                    <p style="font-style:italic; font-size:0.8rem; color:#aaa; margin-bottom:10px;">"Para los patinadores más aferrados... rodando entre los paisajes más bellos."</p>
+                    
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <strong>Cita:</strong> Estadio Banorte (Antes Azteca)</p>
+                    <p><i class="far fa-clock" style="color: var(--gold);"></i> <strong>7:45 AM</strong> Cita | <strong>8:30 AM</strong> Salida</p>
+                    <p><i class="fas fa-map-marked-alt" style="color: var(--gold);"></i> <strong>Destino:</strong> Estela de Luz 🏙️</p>
+                    <hr style="border-color: #333; margin: 10px 0;">
+
+                    <div style="background: rgba(0, 212, 255, 0.1); border-left: 3px solid var(--info-blue); padding: 10px; margin-bottom: 10px;">
+                        <p style="margin:0; font-weight:bold; color:var(--info-blue); font-size:0.9rem;">⚠️ INTERMEDIO / AVANZADO</p>
+                        <ul class="detail-list" style="margin-top:5px;">
+                            <li>Descensos prolongados (Freno obligatorio 🛑).</li>
+                            <li>Ritmo: 18km/h constante.</li>
+                        </ul>
+                    </div>
+
+                    <p style="font-weight: bold; color: var(--gold); font-size:0.85rem;">🚫 LINEAMIENTOS:</p>
+                    <ul class="detail-list" style="margin-top:5px;">
+                        <li>Solo patines/bicis (No autos de apoyo).</li>
+                        <li>Fila india (ciclovía doble sentido).</li>
+                        <li>🍺❌ PROHIBIDO ALCOHOL.</li>
+                    </ul>
+
+                    <p style="font-weight: bold; color: var(--gold); font-size:0.85rem;">⚠️ RECOMENDACIONES:</p>
+                    <ul class="detail-list" style="margin-top:5px;">
+                        <li>👕 Ropa ligera (frío inicio -> calor después).</li>
+                        <li>🥐 Ir desayunados + 💧 Llevar agua.</li>
+                        <li>🧴 Usar bloqueador.</li>
+                    </ul>
                 </div>
             </div>
 
@@ -483,43 +511,81 @@
         <h3 class="section-header-text">Patrocinadores Oficiales</h3>
         
         <div class="scroller-track" id="sponsor-track">
-            
-            <div class="logo-item">
-                <a href="https://www.instagram.com/nnskates?igsh=MW91Nm1jZGVudGFydw==" target="_blank">
-                    <img src="nnskates.jpeg" alt="NN Skates">
-                </a>
-            </div>
-            
-            <div class="logo-item">
-              <a href="https://www.instagram.com/sommelier_de_barrio_?igsh=MTR3czVlaDd2ZnNnbA==" target="_blank">
-                <img src="sommelier.jpeg" alt="Sommelier">
-              </a>
-            </div>
-            
-            <div class="logo-item giant">
-                <a href="https://www.instagram.com/dragonandroll/" target="_blank">
-                    <img src="dragonandroll.jpeg" alt="Dragon And Roll">
-                </a>
-            </div>
+            <div class="logo-item"><a href="https://www.instagram.com/nnskates?igsh=MW91Nm1jZGVudGFydw==" target="_blank"><img src="nnskates.jpeg" alt="NN Skates"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/sommelier_de_barrio_?igsh=MTR3czVlaDd2ZnNnbA==" target="_blank"><img src="sommelier.jpeg" alt="Sommelier"></a></div>
+            <div class="logo-item giant"><a href="https://www.instagram.com/dragonandroll/" target="_blank"><img src="dragonandroll.jpeg" alt="Dragon And Roll"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/roexmexico?igsh=MTRhbDZhcjc0ZzdybQ==" target="_blank"><img src="roexmexico.jpeg" alt="Roex"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/penguinrollerskateshop?igsh=YnZoenYydTA2YmJn" target="_blank"><img src="penguinrollerskateshop.jpeg" alt="Penguin"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/international_urban_skate?igsh=MW94YW50NXhtcTJpNg==" target="_blank"><img src="international_urban_skate.jpeg" alt="International Urban Skate"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/patinaligero?igsh=YW0zamJnYzdxOGVl" target="_blank"><img src="patinaligero.jpeg" alt="Patina Ligero"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/js_rollers?igsh=MTJqcXUzcmQ0NDNkOA==" target="_blank"><img src="js_rollers.jpeg" alt="JS Rollers"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/canariam_mexico?igsh=czlnOTRoNW1sMmF5" target="_blank"><img src="canariam_mexico.jpeg" alt="Canariam"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/bisonskates?igsh=c2twODd1anoydmRk" target="_blank"><img src="bisonskates.jpeg" alt="Bison Skates"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/rollerfacemexico?igsh=cGwzYzU2OWV1Y3g5" target="_blank"><img src="rollerfacemexico.jpeg" alt="Rollerface"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/flyingeaglemx?igsh=MnpsMGRudjNqOW0=" target="_blank"><img src="flyingeaglemx.jpeg" alt="Flying Eagle"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/bad_bladers?igsh=MXBrZGVmeDhjZ2p5Ng==" target="_blank"><img src="bad_bladers.jpeg" alt="Bad Bladers"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/rollstarpatinaje?igsh=MjVqN2p5NXp2MTMy" target="_blank"><img src="rollstarpatinaje.jpeg" alt="Rollstar"></a></div>
+        </div>
+    </section>
 
-            <div class="logo-item">
-                <a href="https://www.instagram.com/roexmexico?igsh=MTRhbDZhcjc0ZzdybQ==" target="_blank">
-                    <img src="roexmexico.jpeg" alt="Roex">
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                &copy; 2026 Festival Nacional Roller CDMX <br>
+                <a href="aviso.html" style="color: #444; font-size: 0.7rem; text-decoration: none;">Aviso de Privacidad</a>
+            </div>
+            <div class="footer-right">
+                Hecha por 
+                <a href="https://www.instagram.com/kmbcmb/" target="_blank" class="author-link">
+                    Carlos (@kmbcmb)
                 </a>
             </div>
+        </div>
+    </footer>
 
-            <div class="logo-item">
-                <a href="https://www.instagram.com/penguinrollerskateshop?igsh=YnZoenYydTA2YmJn" target="_blank">
-                    <img src="penguinrollerskateshop.jpeg" alt="Penguin">
-                </a>
-            </div>
+    <script>
+        function activarScrollerHibrido(idTrack, velocidad) {
+            const track = document.getElementById(idTrack);
+            if (!track) return;
 
-            <div class="logo-item">
-                <a href="https://www.instagram.com/international_urban_skate?igsh=MW94YW50NXhtcTJpNg==" target="_blank">
-                    <img src="international_urban_skate.jpeg" alt="International Urban Skate">
-                </a>
-            </div>
+            const items = Array.from(track.children);
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                track.appendChild(clone);
+            });
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                track.appendChild(clone);
+            });
 
-            <div class="logo-item">
-                <a href="https://www.instagram.com/patinaligero?igsh=YW0zamJnYzdxOGVl" target="_blank">
-                    <img src="patinaligero.jpeg" alt="Patina Lig
+            let pausado = false;
+            let animationId;
+
+            function autoScroll() {
+                if (!pausado) {
+                    track.scrollLeft += velocidad;
+                    if (track.scrollLeft >= (track.scrollWidth / 3)) {
+                        track.scrollLeft = 0;
+                    }
+                }
+                animationId = requestAnimationFrame(autoScroll);
+            }
+
+            autoScroll();
+
+            track.addEventListener('mouseenter', () => pausado = true);
+            track.addEventListener('touchstart', () => pausado = true, {passive: true});
+            track.addEventListener('mouseleave', () => pausado = false);
+            track.addEventListener('touchend', () => {
+                setTimeout(() => pausado = false, 1000);
+            });
+        }
+
+        window.addEventListener('load', () => {
+            activarScrollerHibrido('collab-track', 0.8);
+            activarScrollerHibrido('sponsor-track', 1.0);
+        });
+    </script>
+
+</body>
+</html>
