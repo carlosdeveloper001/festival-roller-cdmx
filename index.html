@@ -96,6 +96,88 @@
             letter-spacing: 2px;
         }
 
+        /* --- GALERÍA DE PÓSTERS (NUEVO SLIDER) --- */
+        .posters-section {
+            padding: 60px 20px 20px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .posters-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .posters-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px 0 30px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) #222;
+        }
+
+        .posters-slider::-webkit-scrollbar { height: 10px; }
+        .posters-slider::-webkit-scrollbar-track { background: #222; border-radius: 10px; }
+        .posters-slider::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        .poster-card {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+            background: rgba(20,20,20,0.8);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .poster-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .poster-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            aspect-ratio: 2/3;
+            object-fit: cover;
+        }
+
+        .poster-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn-action {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+
+        .btn-action:hover { opacity: 0.9; transform: scale(1.02); }
+        .btn-wa { background: var(--whatsapp-green); color: white; }
+        .btn-dl { background: #333; color: var(--gold); border: 1px solid var(--gold); }
+
         /* --- SECCIÓN JERSEY --- */
         .merch-section {
             background: linear-gradient(180deg, #111 0%, #050505 100%);
@@ -181,199 +263,46 @@
         }
         .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); background-color: #1ebe57; }
 
-
         /* --- ESTILOS DE LOS CARRUSELES HÍBRIDOS --- */
-        .hybrid-scroll-container {
-            width: 100%;
-            overflow: hidden; 
-            position: relative;
-            padding: 40px 0;
-        }
+        .hybrid-scroll-container { width: 100%; overflow: hidden; position: relative; padding: 40px 0; }
+        .collaborators-bg { background: linear-gradient(to bottom, #0a0a0a, #151515, #0a0a0a); border-bottom: 1px solid #333; }
+        .sponsors-bg { background-color: #000; border-top: 1px solid #333; margin-top: auto; }
 
-        .collaborators-bg {
-            background: linear-gradient(to bottom, #0a0a0a, #151515, #0a0a0a);
-            border-bottom: 1px solid #333;
-        }
-
-        .sponsors-bg {
-            background-color: #000;
-            border-top: 1px solid #333;
-            margin-top: auto;
-        }
-
-        .section-header-text {
-            text-align: center;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 1rem;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .scroller-track {
-            display: flex;
-            gap: 40px; 
-            overflow-x: auto; 
-            padding: 10px 20px;
-            width: 100%;
-            cursor: grab; 
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
+        .section-header-text { text-align: center; color: #666; text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; margin-bottom: 25px; font-weight: 700; }
+        .scroller-track { display: flex; gap: 40px; overflow-x: auto; padding: 10px 20px; width: 100%; cursor: grab; scrollbar-width: none; -ms-overflow-style: none; }
         .scroller-track::-webkit-scrollbar { display: none; }
         .scroller-track:active { cursor: grabbing; }
-
-        .logo-item {
-            flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-item img {
-            max-width: 100%;
-            height: auto;
-            max-height: 90px; 
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s;
-            border-radius: 8px;
-            aspect-ratio: 3/2; 
-            object-fit: contain;
-        }
-
-        .logo-item img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .logo-item.giant img {
-            max-height: 150px !important; 
-            filter: grayscale(0%) !important; 
-            opacity: 1 !important; 
-        }
+        .logo-item { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+        .logo-item img { max-width: 100%; height: auto; max-height: 90px; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s; border-radius: 8px; aspect-ratio: 3/2; object-fit: contain; }
+        .logo-item img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+        .logo-item.giant img { max-height: 150px !important; filter: grayscale(0%) !important; opacity: 1 !important; }
 
         /* --- ITINERARIO CON DESPLEGABLES --- */
-        .schedule-section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; font-family: 'Cinzel', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 40px; }
-        
-        .grid-dias { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
-        }
-        
-        .card-dia { 
-            background: rgba(20, 20, 20, 0.8); 
-            border-top: 3px solid var(--gold-dim); 
-            padding: 25px; 
-            text-align: center; 
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-        
+        .schedule-section { padding: 20px 20px 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .grid-dias { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card-dia { background: rgba(20, 20, 20, 0.8); border-top: 3px solid var(--gold-dim); padding: 25px; text-align: center; display: flex; flex-direction: column; transition: all 0.3s ease; }
         .dia-numero { font-family: 'Cinzel'; font-size: 1.5rem; color: var(--gold); }
         .ruta-nombre { font-weight: bold; margin: 10px 0; font-size: 1.2rem; }
         .ruta-desc { color: #aaa; font-size: 0.95rem; margin-bottom: 15px; }
         
-        /* Contenedor Oculto (Acordeón) */
-        .contenido-oculto {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s ease-out; 
-            text-align: left;
-            padding: 0 10px;
-            color: #ddd;
-            font-size: 0.9rem;
-        }
+        .contenido-oculto { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; text-align: left; padding: 0 10px; color: #ddd; font-size: 0.9rem; }
+        .contenido-oculto.mostrar { max-height: 3500px; padding-top: 20px; border-top: 1px solid #333; margin-top: 15px; }
 
-        .contenido-oculto.mostrar {
-            max-height: 3500px; /* Incrementado para la imagen nueva */
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            margin-top: 15px;
-        }
-
-        /* Botón de Ver Detalles */
-        .btn-toggle-detalles {
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 10px 20px;
-            margin-top: 15px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        .btn-toggle-detalles:hover {
-            background: var(--gold);
-            color: #000;
-        }
-
+        .btn-toggle-detalles { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 20px; margin-top: 15px; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 0.8rem; transition: all 0.3s; border-radius: 5px; width: 100%; }
+        .btn-toggle-detalles:hover { background: var(--gold); color: #000; }
         .detail-list { padding-left: 20px; margin: 10px 0; font-size: 0.85rem; color: #ccc; }
         .detail-list li { margin-bottom: 5px; }
         
-        /* Estilos para la imagen clickeable de la barredora */
-        .img-barredora {
-            width: 100%; 
-            max-width: 400px; 
-            border-radius: 10px; 
-            border: 2px solid var(--gold); 
-            display: inline-block; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .img-barredora:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 25px rgba(255,215,0,0.4);
-        }
+        .img-barredora { width: 100%; max-width: 400px; border-radius: 10px; border: 2px solid var(--gold); display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: transform 0.3s, box-shadow 0.3s; }
+        .img-barredora:hover { transform: scale(1.03); box-shadow: 0 8px 25px rgba(255,215,0,0.4); }
 
         /* --- FOOTER --- */
-        footer {
-            background-color: #080808;
-            border-top: 1px solid #222;
-            padding: 30px 20px;
-            color: #666;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
+        footer { background-color: #080808; border-top: 1px solid #222; padding: 30px 20px; color: #666; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
         .footer-left { text-align: left; font-size: 0.9rem; }
-        
-        .footer-right { 
-            text-align: right; 
-            font-size: 0.65rem; 
-        }
-
-        .author-link {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-            margin-left: 5px;
-        }
-        
-        .author-link:hover {
-            color: var(--neon-yellow);
-            text-shadow: 0 0 10px rgba(255,255,0,0.5);
-        }
+        .footer-right { text-align: right; font-size: 0.65rem; }
+        .author-link { color: var(--gold); text-decoration: none; font-weight: bold; transition: color 0.3s; margin-left: 5px; }
+        .author-link:hover { color: var(--neon-yellow); text-shadow: 0 0 10px rgba(255,255,0,0.5); }
 
         @media (max-width: 768px) {
             .hero { padding-top: 60px; }
@@ -423,17 +352,60 @@
         </div>
     </section>
 
-    <section class="hybrid-scroll-container collaborators-bg">
-        <h3 class="section-header-text">Comunidades & Crews Aliados</h3>
+    <section class="posters-section">
+        <h2 class="posters-title">Pósters Oficiales</h2>
+        <p style="text-align:center; color:#aaa; margin-bottom:10px; font-size: 0.9rem;">
+            Desliza para ver todos. Haz clic para pedir informes de la ruta o descarga la imagen.
+        </p>
         
-        <div class="scroller-track" id="collab-track">
-            <div class="logo-item"><a href="https://www.instagram.com/baby.rollers/" target="_blank"><img src="baby.jpg" alt="Baby Rollers"></a></div>
-            <div class="logo-item"><a href="https://www.instagram.com/rutasclandestinas/" target="_blank"><img src="clandestinos.jpg" alt="Clan Destinos"></a></div>
-            <div class="logo-item"><a href="https://www.instagram.com/correcaminos_rollers/" target="_blank"><img src="correcaminos.jpg" alt="Correcaminos"></a></div>
-            <div class="logo-item"><a href="https://www.instagram.com/octos_en_ruedas/" target="_blank"><img src="octos.png" alt="Octo Rollers"></a></div>
-            <div class="logo-item"><a href="https://www.instagram.com/rollers_unidos_mexico/" target="_blank"><img src="rumx.jpeg" alt="Rumx"></a></div>
-            <div class="logo-item"><a href="https://www.instagram.com/sawrutasmx/" target="_blank"><img src="saw.png" alt="Saw Rutas"></a></div>
-            <div class="logo-item"><a href="https://www.instagram.com/unicornixs.rollers/" target="_blank"><img src="unicornixs.jpg" alt="Unicornixs"></a></div>
+        <div class="posters-slider">
+            <div class="poster-card">
+                <img src="viernes.jpeg" alt="Ruta Viernes Dioses">
+                <div class="poster-actions">
+                    <a href="https://wa.me/525627538595?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20ruta%20del%20Viernes%20(Dioses)" target="_blank" class="btn-action btn-wa"><i class="fab fa-whatsapp"></i> Info Ruta Viernes</a>
+                    <a href="viernes.jpeg" download class="btn-action btn-dl"><i class="fas fa-download"></i> Descargar Imagen</a>
+                </div>
+            </div>
+            
+            <div class="poster-card">
+                <img src="sabado.jpeg" alt="Ruta Sábado Xochimilco">
+                <div class="poster-actions">
+                    <a href="https://wa.me/525549131534?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20ruta%20del%20S%C3%A1bado%20a%20Xochimilco" target="_blank" class="btn-action btn-wa"><i class="fab fa-whatsapp"></i> Info Ruta Sábado</a>
+                    <a href="sabado.jpeg" download class="btn-action btn-dl"><i class="fas fa-download"></i> Descargar Imagen</a>
+                </div>
+            </div>
+
+            <div class="poster-card">
+                <img src="teotihuacan.jpeg" alt="Ruta Domingo Teotihuacán">
+                <div class="poster-actions">
+                    <a href="https://wa.me/525627538595?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Reto%20a%20Teotihuac%C3%A1n" target="_blank" class="btn-action btn-wa"><i class="fab fa-whatsapp"></i> Info Teotihuacán</a>
+                    <a href="teotihuacan.jpeg" download class="btn-action btn-dl"><i class="fas fa-download"></i> Descargar Imagen</a>
+                </div>
+            </div>
+
+            <div class="poster-card">
+                <img src="dombasica.jpeg" alt="Ruta Domingo Básica">
+                <div class="poster-actions">
+                    <a href="https://wa.me/525627538595?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20ruta%20B%C3%A1sica%20al%20Parque%20Bicentenario" target="_blank" class="btn-action btn-wa"><i class="fab fa-whatsapp"></i> Info Ruta Básica</a>
+                    <a href="dombasica.jpeg" download class="btn-action btn-dl"><i class="fas fa-download"></i> Descargar Imagen</a>
+                </div>
+            </div>
+
+            <div class="poster-card">
+                <img src="barredora.jpeg" alt="Servicio Barredora">
+                <div class="poster-actions">
+                    <a href="https://wa.me/525627538595?text=Hola,%20quiero%20informaci%C3%B3n%20y%20apartar%20mi%20lugar%20en%20la%20Barredora" target="_blank" class="btn-action btn-wa"><i class="fab fa-whatsapp"></i> Info Barredora</a>
+                    <a href="barredora.jpeg" download class="btn-action btn-dl"><i class="fas fa-download"></i> Descargar Imagen</a>
+                </div>
+            </div>
+
+            <div class="poster-card">
+                <img src="lunes.jpeg" alt="Ruta Lunes Parres">
+                <div class="poster-actions">
+                    <a href="https://wa.me/525627538595?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20ruta%20a%20Parres%20del%20lunes" target="_blank" class="btn-action btn-wa"><i class="fab fa-whatsapp"></i> Info Lunes Parres</a>
+                    <a href="lunes.jpeg" download class="btn-action btn-dl"><i class="fas fa-download"></i> Descargar Imagen</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -514,13 +486,15 @@
                     <p>🛼 XOCHIMILCO ROLLER EXPERIENCE</p>
                     <p>💛 Temática: AMARILLO</p>
                     <p>📍 Salida: Monumento a la Revolución</p>
-                    <p>🎯 Destino: Mezcal Mestizo<br>Gardenias 1, zona chinampera, Xochimilco, CDMX</p>
+                    <p>🎯 Destino: Mezcal Mestizo</p>
+                    <p>Gardenias 1, zona chinampera, Xochimilco, CDMX</p>
                     <br>
                     <p>🕣 Cita: 9:00 am</p>
                     <p>🕙 Salida: 10:00 am (puntual)</p>
                     <p>📏 Distancia: 22 km aprox.</p>
                     <br>
-                    <p>🤝 Colaboran:<br>SAW Rutas • Babys rollers• Correcaminos rollers • Unicornixs•Rutas Clandestinas • Octosrollers • RUMX</p>
+                    <p>🤝 Colaboran:</p>
+                    <p>SAW Rutas • Babys rollers• Correcaminos rollers • Unicornixs•Rutas Clandestinas • Octosrollers • RUMX</p>
                     <br>
                     <p>🎉 Convivencia final en Jardín Mezcal Mestizo:</p>
                     <p>🍽️ Zona de alimentos</p>
@@ -545,6 +519,7 @@
                     <p><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <strong>Cita:</strong> Explanada Zócalo CDMX</p>
                     <p><i class="far fa-clock" style="color: var(--gold);"></i> <strong>7:30 AM</strong> Cita | <strong>8:30 AM</strong> Salida</p>
                     <p><i class="fas fa-map-marked-alt" style="color: var(--gold);"></i> <strong>Destino:</strong> San Juan Teotihuacán</p>
+                    <p style="font-size:0.8rem; color:#aaa; margin-top:5px;">*También habrá Ruta Básica a Parque Bicentenario. (Ver póster arriba).</p>
                     <hr style="border-color: #333; margin: 10px 0;">
                     <div style="background: rgba(255, 68, 68, 0.1); border: 1px solid var(--danger-red); padding: 10px; border-radius: 8px; margin: 10px 0;">
                         <p style="color: var(--danger-red); font-weight: bold; text-align: center; margin-bottom: 5px;">🚨 ¡ATENCIÓN! NO ES UN PASEO</p>
@@ -587,7 +562,7 @@
                     <p>🛼 Cada kilómetro vale la pena. Esto se vive, no se cuenta.</p>
                     
                     <div style="text-align: center; margin-top: 25px;">
-                        <a href="https://wa.me/5215627538595?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20barredora" target="_blank" style="display: inline-block;">
+                        <a href="https://wa.me/525627538595?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20barredora" target="_blank" style="display: inline-block;">
                             <img src="barredora.jpeg" class="img-barredora" alt="Información Barredora">
                         </a>
                         <p style="font-size: 0.85rem; color: var(--neon-yellow); margin-top: 10px; font-weight: bold;">👆 Toca la imagen para pedir informes</p>
@@ -651,9 +626,21 @@
         </div>
     </section>
 
+    <section class="hybrid-scroll-container collaborators-bg">
+        <h3 class="section-header-text">Comunidades & Crews Aliados</h3>
+        <div class="scroller-track" id="collab-track">
+            <div class="logo-item"><a href="https://www.instagram.com/baby.rollers/" target="_blank"><img src="baby.jpg" alt="Baby Rollers"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/rutasclandestinas/" target="_blank"><img src="clandestinos.jpg" alt="Clan Destinos"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/correcaminos_rollers/" target="_blank"><img src="correcaminos.jpg" alt="Correcaminos"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/octos_en_ruedas/" target="_blank"><img src="octos.png" alt="Octo Rollers"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/rollers_unidos_mexico/" target="_blank"><img src="rumx.jpeg" alt="Rumx"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/sawrutasmx/" target="_blank"><img src="saw.png" alt="Saw Rutas"></a></div>
+            <div class="logo-item"><a href="https://www.instagram.com/unicornixs.rollers/" target="_blank"><img src="unicornixs.jpg" alt="Unicornixs"></a></div>
+        </div>
+    </section>
+
     <section class="hybrid-scroll-container sponsors-bg">
         <h3 class="section-header-text">Patrocinadores Oficiales</h3>
-        
         <div class="scroller-track" id="sponsor-track">
             <div class="logo-item"><a href="https://www.instagram.com/nnskates/" target="_blank"><img src="nnskates.jpeg" alt="NN Skates"></a></div>
             <div class="logo-item"><a href="https://www.instagram.com/sommelier_de_barrio_/" target="_blank"><img src="sommelier.jpeg" alt="Sommelier"></a></div>
@@ -693,12 +680,9 @@
     </footer>
 
     <script>
-        // Función para abrir/cerrar detalles
         function toggleDetalles(id) {
             const contenido = document.getElementById(id);
             contenido.classList.toggle('mostrar');
-            
-            // Cambiar texto del botón
             const boton = contenido.previousElementSibling;
             if (contenido.classList.contains('mostrar')) {
                 boton.textContent = "OCULTAR DETALLES 👆";
@@ -707,7 +691,6 @@
             }
         }
 
-        // Función del scroller infinito
         function activarScrollerHibrido(idTrack, velocidad) {
             const track = document.getElementById(idTrack);
             if (!track) return;
