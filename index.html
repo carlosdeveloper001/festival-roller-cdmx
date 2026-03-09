@@ -10,7 +10,7 @@
 
     <title>Festival Nacional Roller 2026 | CDMX</title>
 
-    <link rel="icon" type="image/jpeg" href="logo-festival.jpg">
+    <link rel="icon" type="image/jpeg" href="logonew.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </noscript>
 
-    <link rel="preload" as="image" href="logo-festival.jpg">
+    <link rel="preload" as="image" href="logonew.jpeg">
     
     <style>
         /* --- ESTILOS GENERALES --- */
@@ -291,7 +291,7 @@
         }
 
         .contenido-oculto.mostrar {
-            max-height: 2500px; /* Suficiente para textos largos */
+            max-height: 3500px; /* Incrementado para la imagen nueva */
             padding-top: 20px;
             border-top: 1px solid #333;
             margin-top: 15px;
@@ -375,7 +375,7 @@
     <div class="background-stars"></div>
 
     <header class="hero">
-        <img src="logo-festival.jpg" alt="Logo Festival Nacional Roller CDMX" class="hero-logo">
+        <img src="logonew.jpeg" alt="Logo Festival Nacional Roller CDMX" class="hero-logo" style="border-radius: 20px;">
         <div class="fecha-box">13 - 16 DE MARZO 2026</div>
         <p style="margin-top:20px; font-size: 0.9rem; color: #aaa;">DESLIZA PARA VER LA MERCANCÍA OFICIAL</p>
         <div style="font-size: 2rem; color: var(--gold); margin-top: 10px;">&#8595;</div>
@@ -483,7 +483,7 @@
                     <p><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <strong>Cita:</strong> Monumento a la Revolución</p>
                     <p><i class="far fa-clock" style="color: var(--gold);"></i> <strong>9:00 AM:</strong> Reunión</p>
                     <p><i class="fas fa-skating" style="color: var(--gold);"></i> <strong>10:00 AM:</strong> Salida (22km)</p>
-                    <p><i class="fas fa-map-marked-alt" style="color: var(--gold);"></i> <strong>Destino:</strong> Jardín Mezcal Mestizo</p>
+                    <p><i class="fas fa-map-marked-alt" style="color: var(--gold);"></i> <strong>Destino:</strong> Mezcal Mestizo</p>
                     <hr style="border-color: #333; margin: 10px 0;">
                     <p><strong>🎉 Convivencia Final:</strong><br>Alimentos, Regalos y Sorpresas.</p>
                     <p style="margin-top:10px; color: var(--neon-yellow); font-size: 1rem; text-align: center; border: 1px solid var(--neon-yellow); border-radius: 5px; padding: 5px;">
@@ -498,13 +498,15 @@
                     <p>🛼 XOCHIMILCO ROLLER EXPERIENCE</p>
                     <p>💛 Temática: AMARILLO</p>
                     <p>📍 Salida: Monumento a la Revolución</p>
-                    <p>🎯 Destino: Mezcal Mestizo<br>Gardenias 1, zona chinampera, Xochimilco, CDMX</p>
+                    <p>🎯 Destino: Mezcal Mestizo</p>
+                    <p>Gardenias 1, zona chinampera, Xochimilco, CDMX</p>
                     <br>
                     <p>🕣 Cita: 9:00 am</p>
                     <p>🕙 Salida: 10:00 am (puntual)</p>
                     <p>📏 Distancia: 22 km aprox.</p>
                     <br>
-                    <p>🤝 Colaboran:<br>SAW Rutas • Babys rollers• Correcaminos rollers • Unicornixs•Rutas Clandestinas • Octosrollers • RUMX</p>
+                    <p>🤝 Colaboran:</p>
+                    <p>SAW Rutas • Babys rollers• Correcaminos rollers • Unicornixs•Rutas Clandestinas • Octosrollers • RUMX</p>
                     <br>
                     <p>🎉 Convivencia final en Jardín Mezcal Mestizo:</p>
                     <p>🍽️ Zona de alimentos</p>
@@ -569,6 +571,8 @@
                     <p>❌ Acompañantes en auto deben ir detrás del contingente</p>
                     <br>
                     <p>🛼 Cada kilómetro vale la pena. Esto se vive, no se cuenta.</p>
+                    
+                    <img src="barredora.jpeg" alt="Información Barredora" style="width: 100%; max-width: 400px; border-radius: 10px; margin-top: 20px; border: 2px solid var(--gold); display: block; margin-left: auto; margin-right: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
                 </div>
             </div>
 
@@ -648,7 +652,7 @@
             <div class="logo-item"><a href="https://www.instagram.com/rollstarpatinaje/" target="_blank"><img src="rollstarpatinaje.jpeg" alt="Rollstar"></a></div>
             <div class="logo-item">
                 <a href="https://www.instagram.com/horacero_eve/" target="_blank">
-                    <img src="horacero.jpeg" alt="Hora Cero" style="transform: scale(0.95);">
+                    <img src="horacero.jpeg" alt="Hora Cero Producciones" style="transform: scale(0.95);">
                 </a>
             </div>
         </div>
@@ -675,7 +679,7 @@
             const contenido = document.getElementById(id);
             contenido.classList.toggle('mostrar');
             
-            // Cambiar texto del botón (opcional, visualmente agradable)
+            // Cambiar texto del botón
             const boton = contenido.previousElementSibling;
             if (contenido.classList.contains('mostrar')) {
                 boton.textContent = "OCULTAR DETALLES 👆";
