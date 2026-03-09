@@ -320,6 +320,22 @@
 
         .detail-list { padding-left: 20px; margin: 10px 0; font-size: 0.85rem; color: #ccc; }
         .detail-list li { margin-bottom: 5px; }
+        
+        /* Estilos para la imagen clickeable de la barredora */
+        .img-barredora {
+            width: 100%; 
+            max-width: 400px; 
+            border-radius: 10px; 
+            border: 2px solid var(--gold); 
+            display: inline-block; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .img-barredora:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -498,15 +514,13 @@
                     <p>🛼 XOCHIMILCO ROLLER EXPERIENCE</p>
                     <p>💛 Temática: AMARILLO</p>
                     <p>📍 Salida: Monumento a la Revolución</p>
-                    <p>🎯 Destino: Mezcal Mestizo</p>
-                    <p>Gardenias 1, zona chinampera, Xochimilco, CDMX</p>
+                    <p>🎯 Destino: Mezcal Mestizo<br>Gardenias 1, zona chinampera, Xochimilco, CDMX</p>
                     <br>
                     <p>🕣 Cita: 9:00 am</p>
                     <p>🕙 Salida: 10:00 am (puntual)</p>
                     <p>📏 Distancia: 22 km aprox.</p>
                     <br>
-                    <p>🤝 Colaboran:</p>
-                    <p>SAW Rutas • Babys rollers• Correcaminos rollers • Unicornixs•Rutas Clandestinas • Octosrollers • RUMX</p>
+                    <p>🤝 Colaboran:<br>SAW Rutas • Babys rollers• Correcaminos rollers • Unicornixs•Rutas Clandestinas • Octosrollers • RUMX</p>
                     <br>
                     <p>🎉 Convivencia final en Jardín Mezcal Mestizo:</p>
                     <p>🍽️ Zona de alimentos</p>
@@ -572,7 +586,12 @@
                     <br>
                     <p>🛼 Cada kilómetro vale la pena. Esto se vive, no se cuenta.</p>
                     
-                    <img src="barredora.jpeg" alt="Información Barredora" style="width: 100%; max-width: 400px; border-radius: 10px; margin-top: 20px; border: 2px solid var(--gold); display: block; margin-left: auto; margin-right: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="https://wa.me/5215627538595?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20barredora" target="_blank" style="display: inline-block;">
+                            <img src="barredora.jpeg" class="img-barredora" alt="Información Barredora">
+                        </a>
+                        <p style="font-size: 0.85rem; color: var(--neon-yellow); margin-top: 10px; font-weight: bold;">👆 Toca la imagen para pedir informes</p>
+                    </div>
                 </div>
             </div>
 
